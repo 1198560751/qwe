@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://1198560751.github.io/james.github.io/</id>
     <title>nie</title>
-    <updated>2020-06-24T03:50:09.098Z</updated>
+    <updated>2020-06-24T04:02:34.159Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://1198560751.github.io/james.github.io/"/>
     <link rel="self" href="https://1198560751.github.io/james.github.io/atom.xml"/>
@@ -16,7 +16,8 @@
         <link href="https://1198560751.github.io/james.github.io/post/git-de-shi-yong/">
         </link>
         <updated>2020-06-24T03:47:38.000Z</updated>
-        <content type="html"><![CDATA[<h2 id=""></h2>
+        <content type="html"><![CDATA[<!-- more -->
+<p>👏  欢迎使用 <strong>Gridea</strong> ！</p>
 <ul>
 <li>1.git遇到问题，就是我还原之后log里只有到还原到的地方，后面的都没了</li>
 </ul>
