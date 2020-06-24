@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://1198560751.github.io/qwe</id>
+    <id>https://1198560751.github.io</id>
     <title>nie</title>
-    <updated>2020-06-24T12:09:45.349Z</updated>
+    <updated>2020-06-24T12:31:31.361Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://1198560751.github.io/qwe"/>
-    <link rel="self" href="https://1198560751.github.io/qwe/atom.xml"/>
+    <link rel="alternate" href="https://1198560751.github.io"/>
+    <link rel="self" href="https://1198560751.github.io/atom.xml"/>
     <subtitle>温故而知新</subtitle>
-    <logo>https://1198560751.github.io/qwe/images/avatar.png</logo>
-    <icon>https://1198560751.github.io/qwe/favicon.ico</icon>
+    <logo>https://1198560751.github.io/images/avatar.png</logo>
+    <icon>https://1198560751.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, nie</rights>
     <entry>
         <title type="html"><![CDATA[git的使用]]></title>
-        <id>https://1198560751.github.io/qwe/post/git-de-shi-yong/</id>
-        <link href="https://1198560751.github.io/qwe/post/git-de-shi-yong/">
+        <id>https://1198560751.github.io/post/git-de-shi-yong/</id>
+        <link href="https://1198560751.github.io/post/git-de-shi-yong/">
         </link>
         <updated>2020-06-24T03:47:38.000Z</updated>
         <content type="html"><![CDATA[<!-- more -->
@@ -159,8 +159,8 @@ a636ddd new html
     </entry>
     <entry>
         <title type="html"><![CDATA[Hello word]]></title>
-        <id>https://1198560751.github.io/qwe/post/hello-gridea/</id>
-        <link href="https://1198560751.github.io/qwe/post/hello-gridea/">
+        <id>https://1198560751.github.io/post/hello-gridea/</id>
+        <link href="https://1198560751.github.io/post/hello-gridea/">
         </link>
         <updated>2018-12-11T16:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
