@@ -1,21 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://1198560751.github.io</id>
+    <id>https://1198560751.github.io/qwe/</id>
     <title>nie</title>
-    <updated>2020-06-25T01:17:42.823Z</updated>
+    <updated>2020-06-25T13:09:04.813Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://1198560751.github.io"/>
-    <link rel="self" href="https://1198560751.github.io/atom.xml"/>
+    <link rel="alternate" href="https://1198560751.github.io/qwe/"/>
+    <link rel="self" href="https://1198560751.github.io/qwe/atom.xml"/>
     <subtitle>温故而知新</subtitle>
-    <logo>https://1198560751.github.io/images/avatar.png</logo>
-    <icon>https://1198560751.github.io/favicon.ico</icon>
+    <logo>https://1198560751.github.io/qwe/images/avatar.png</logo>
+    <icon>https://1198560751.github.io/qwe/favicon.ico</icon>
     <rights>All rights reserved 2020, nie</rights>
     <entry>
         <title type="html"><![CDATA[java推荐]]></title>
-        <id>https://1198560751.github.io/post/java-tui-jian/</id>
-        <link href="https://1198560751.github.io/post/java-tui-jian/">
+        <id>https://1198560751.github.io/qwe/post/java-tui-jian/</id>
+        <link href="https://1198560751.github.io/qwe/post/java-tui-jian/">
         </link>
         <updated>2020-06-25T01:13:03.000Z</updated>
+        <summary type="html"><![CDATA[<ul>
+<li>
+<p>想要用Java在短短的几个月时间内写出自己的毕业设计。</p>
+</li>
+<li>
+<p>想要用Java体验一下如何从零搭建一个属于自己的网站。</p>
+</li>
+</ul>
+<p>那么可以看一下我下面所写的<strong>不成熟的建议</strong>。</p>
+<h1 id="二-如何快速学java">二、如何快速学Java</h1>
+<blockquote>
+<p>这里我以Java EE(Jakarta EE)/Java Web的经验来说哦。(都把你们看做是零基础入门的了)</p>
+</blockquote>
+<p>学习Java EE(Jakarta EE)总体来说会有以下三大模块：</p>
+<ul>
+<li>
+<p>Java</p>
+</li>
+<li>
+<p>数据库</p>
+</li>
+<li>
+<p>Web前端</p>
+</li>
+</ul>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/2BGWl1qPxib2jqDFkiaqeLxq12HNUv7XJCKmMNdGQianyAMJKtDALgpwA6sicnGtAZuSD5PLeOwSz54DyhlSdicv9AA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="" title="数据库、Java、Web前端" loading="lazy">数据库、Java、Web前端</p>
+<p>在我看来，无论学习什么技术都好，在<strong>学习该项技术的细节之前</strong>都得知道：<strong>这项技术是什么，为什么我要学习这项技术，学习了这项技术有什么好处</strong>。</p>
+<ul>
+<li>
+<p>看似好像我在说多余的话，但如果你在学习某项技术的时候无法回答上面的三个问题。再过几天，你很大程度上会<strong>忘记</strong>这项你所“学过”的技术。</p>
+</li>
+<li>
+<p>比如说，如何你连“为什么要用多线程”你都无法用通俗的话来解释清楚。即便你<strong>当时</strong>学习的时候知道多线程可以用xxx方式来创建，多线程的xxx的api。那再过两个月，人家问你”Java多线程有什么用啊？”。你想想你还能答什么，我认为你是记不住“多线程可以用xxx方式来创建、多线程的xxx的api”这些知识点了。</p>
+</li>
+<li>
+<p>再比如说，如果学习Spring时不知道IOC和new对象有什么区别，那我为啥不直接new对象而要那么麻烦去学Spring呢？</p>
+</li>
+</ul>
+<p>简单来说：<strong>如果你不知道学习某项技术是干嘛用的，那先不要学</strong>。</p>
+<hr>
+<p>如果你是零基础学习Java并<strong>理解力不是爆棚</strong>的话，我建议以<strong>视频</strong>学习为主。</p>
+<p><strong>可能</strong>你会看到这样类似的言论：</p>
+<ul>
+<li>
+<p>“看视频学习太慢了”</p>
+</li>
+<li>
+<p>“直接看源码啊，源码就是最好的解释”</p>
+</li>
+<li>
+<p>“有问题直接Google啊，用什么百度”</p>
+</li>
+<li>
+<p>“最好的资料是官网文档”</p>
+</li>
+<li>
+<p>…..</p>
+</li>
+</ul>
+<p>但是，那都是对有经验的人或者高智商的人群来讲的。</p>
+<p>如果是<strong>零基础普通人</strong>，看视频学习/看不懂源码/用百度/看中文博客来学习<strong>不丢人</strong>。</p>
+<blockquote>
+<p>ps:如果看的视频讲师的语速不是特别快，建议以1.5或者1.75倍速观看。</p>
+</blockquote>
+<h2 id="21关于视频资源">2.1关于视频资源</h2>
+<p>我在学习Java的时候也收集了很多的视频资源，并不是每个都有看过。只是在混群的时候发现有人发了，就复制下来整理一下罢了。</p>
+<ul>
+<li>https://github.com/ZhongFuCheng3y/3y/blob/master/src/resource.md</li>
+</ul>
+<p>![](https://mmbiz.qpic.cn/mmbiz_png/</p>
+]]></summary>
         <content type="html"><![CDATA[<ul>
 <li>
 <p>想要用Java在短短的几个月时间内写出自己的毕业设计。</p>
@@ -85,7 +156,9 @@
 <ul>
 <li>https://github.com/ZhongFuCheng3y/3y/blob/master/src/resource.md</li>
 </ul>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/2BGWl1qPxib2jqDFkiaqeLxq12HNUv7XJCVD1qVYiazQXHqTaaYopCRtOMEj8SwuGFJ4y9lpcIKrk6IDme67icQPWg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="" title="视频资源" loading="lazy">视频资源</p>
+<p>![](https://mmbiz.qpic.cn/mmbiz_png/</p>
+<!-- more -->
+<p>2BGWl1qPxib2jqDFkiaqeLxq12HNUv7XJCVD1qVYiazQXHqTaaYopCRtOMEj8SwuGFJ4y9lpcIKrk6IDme67icQPWg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1 &quot;视频资源&quot;)视频资源</p>
 <p>其他的视频资源：</p>
 <ul>
 <li>
@@ -382,8 +455,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[git的使用]]></title>
-        <id>https://1198560751.github.io/post/git-de-shi-yong/</id>
-        <link href="https://1198560751.github.io/post/git-de-shi-yong/">
+        <id>https://1198560751.github.io/qwe/post/git-de-shi-yong/</id>
+        <link href="https://1198560751.github.io/qwe/post/git-de-shi-yong/">
         </link>
         <updated>2020-06-24T03:47:38.000Z</updated>
         <content type="html"><![CDATA[<!-- more -->
@@ -529,8 +602,8 @@ a636ddd new html
     </entry>
     <entry>
         <title type="html"><![CDATA[Hello word]]></title>
-        <id>https://1198560751.github.io/post/hello-gridea/</id>
-        <link href="https://1198560751.github.io/post/hello-gridea/">
+        <id>https://1198560751.github.io/qwe/post/hello-gridea/</id>
+        <link href="https://1198560751.github.io/qwe/post/hello-gridea/">
         </link>
         <updated>2018-12-11T16:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
