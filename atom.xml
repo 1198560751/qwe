@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://1198560751.github.io/qwe/</id>
+    <id>https://1198560751.github.io/qweqwe/</id>
     <title>nie</title>
-    <updated>2020-06-25T13:29:37.101Z</updated>
+    <updated>2020-06-25T13:30:41.724Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://1198560751.github.io/qwe/"/>
-    <link rel="self" href="https://1198560751.github.io/qwe/atom.xml"/>
+    <link rel="alternate" href="https://1198560751.github.io/qweqwe/"/>
+    <link rel="self" href="https://1198560751.github.io/qweqwe/atom.xml"/>
     <subtitle>温故而知新</subtitle>
-    <logo>https://1198560751.github.io/qwe/images/avatar.png</logo>
-    <icon>https://1198560751.github.io/qwe/favicon.ico</icon>
+    <logo>https://1198560751.github.io/qweqwe/images/avatar.png</logo>
+    <icon>https://1198560751.github.io/qweqwe/favicon.ico</icon>
     <rights>All rights reserved 2020, nie</rights>
     <entry>
         <title type="html"><![CDATA[java相关配置]]></title>
-        <id>https://1198560751.github.io/qwe/post/java-xiang-guan-pei-zhi/</id>
-        <link href="https://1198560751.github.io/qwe/post/java-xiang-guan-pei-zhi/">
+        <id>https://1198560751.github.io/qweqwe/post/java-xiang-guan-pei-zhi/</id>
+        <link href="https://1198560751.github.io/qweqwe/post/java-xiang-guan-pei-zhi/">
         </link>
         <updated>2020-06-25T13:13:12.000Z</updated>
         <content type="html"><![CDATA[<h4 id="安装idea配置java18环境">安装idea配置java1.8环境</h4>
@@ -47,8 +47,8 @@ public class Hello{
     </entry>
     <entry>
         <title type="html"><![CDATA[git的使用]]></title>
-        <id>https://1198560751.github.io/qwe/post/git-de-shi-yong/</id>
-        <link href="https://1198560751.github.io/qwe/post/git-de-shi-yong/">
+        <id>https://1198560751.github.io/qweqwe/post/git-de-shi-yong/</id>
+        <link href="https://1198560751.github.io/qweqwe/post/git-de-shi-yong/">
         </link>
         <updated>2020-06-24T03:47:38.000Z</updated>
         <content type="html"><![CDATA[<!-- more -->
@@ -194,8 +194,8 @@ a636ddd new html
     </entry>
     <entry>
         <title type="html"><![CDATA[Hello word]]></title>
-        <id>https://1198560751.github.io/qwe/post/hello-gridea/</id>
-        <link href="https://1198560751.github.io/qwe/post/hello-gridea/">
+        <id>https://1198560751.github.io/qweqwe/post/hello-gridea/</id>
+        <link href="https://1198560751.github.io/qweqwe/post/hello-gridea/">
         </link>
         <updated>2018-12-11T16:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
