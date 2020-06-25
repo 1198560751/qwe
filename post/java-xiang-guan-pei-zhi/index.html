@@ -8,7 +8,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="温故而知新">
 <meta name="theme-color" content="#000">
-<title>git的使用 | nie</title>
+<title>java相关配置 | nie</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1593090813664">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -38,8 +38,8 @@
 
 
 
-  <meta name="description" content="git的使用" />
-  <meta name="keywords" content="git,Gridea" />
+  <meta name="description" content="java相关配置" />
+  <meta name="keywords" content="" />
 </head>
 
 <body>
@@ -190,7 +190,8 @@
       <div class="sidebar-body gemini" id="sidebar_body">
         
           
-            
+            <div class="post-side-meta" id="post_side_meta">
+              
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -252,6 +253,207 @@
 
 
 </div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number auto"
+    id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E5%AE%89%E8%A3%85idea%E9%85%8D%E7%BD%AEjava18%E7%8E%AF%E5%A2%83">安装idea配置java1.8环境</a></li>
+<li></li>
+<li><a href="#%E4%B8%80%E5%AE%89%E8%A3%85jdk%E9%85%8D%E7%BD%AEjdk%E7%8E%AF%E5%A2%83">一.安装jdk，配置jdk环境</a></li>
+<li><a href="#%E4%BA%8C%E5%AE%89%E8%A3%85idea">二.安装idea</a></li>
+<li><a href="#%E4%B8%89%E5%88%9B%E5%BB%BA%E7%9A%84%E7%9B%AE%E5%BD%95">三.创建的目录</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+
+  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
+  let active = 'active-show', activeClass = 'active-current';
+  let tocWrapper = document.querySelector('#toc_wrapper');
+  let tocContent = tocWrapper.children[0];
+  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
+
+  function addTocNumber(elem, deep) {
+    if (!elem) {
+      return;
+    }
+    let prop = elem.__proto__;
+
+    if (prop === HTMLUListElement.prototype) {
+      for (let i = 0; i < elem.children.length; i++) {
+        addTocNumber(elem.children[i], deep + (i + 1) + '.');
+      }
+    } else if (prop === HTMLLIElement.prototype) {
+      // 保存li元素
+      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+        lList.push(elem);
+      }
+      for (let i = 0; i < elem.children.length; i++) {
+        let cur = elem.children[i];
+        if (cur.__proto__ === HTMLAnchorElement.prototype) {
+          if (autoNumber) {
+            cur.text = deep + ' ' + cur.text;
+          }
+        } else if (cur.__proto__ === HTMLUListElement.prototype) {
+          addTocNumber(cur, deep);
+        }
+      }
+    }
+  }
+
+  function removeParentActiveClass() {
+    let parents = tocContent.querySelectorAll('.' + active)
+    parents.forEach(function (elem) {
+      elem.classList.remove(active);
+    });
+  }
+
+  function addActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.add(activeClass);
+    }
+  }
+
+  function removeActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.remove(activeClass);
+    }
+  }
+
+  function addActiveLiElemment(elem, parent) {
+    if (!elem || elem === parent) {
+      return;
+    } else {
+      if (elem.__proto__ === HTMLLIElement.prototype) {
+        elem.classList.add(active);
+      }
+      addActiveLiElemment(elem.parentElement, parent);
+    }
+  }
+
+  function showToc() {
+    if (tocWrapper) {
+      postBody = document.querySelector('#post_body');
+      for (let i = 0; i < postBody.children.length; i++) {
+        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+          hList.push(postBody.children[i]);
+        }
+      }
+      if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+      } else if (tocWrapper.classList.contains('no_compress')) {
+        tocContent.classList.add('expanded');
+      } else {
+        if (hList.length > 10) {
+          active = 'active-hidden'
+          tocContent.classList.add('closed');
+        } else {
+          tocContent.classList.add('expanded');
+        }
+      }
+    }
+  }
+
+  (function () {
+    // 处理不是从#一级标题开始目录
+    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+      let con = tocContent.children[0].children[0];
+      tocContent.innerHTML = con.innerHTML;
+    }
+    let markdownItTOC = document.querySelector('.markdownIt-TOC');
+    let innerHeight = window.innerHeight;
+    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
+    addTocNumber(tocContent, '');
+  })();
+
+  document.addEventListener('scroll', function (e) {
+    if (lList.length <= 0) {
+      return;
+    }
+    let scrollTop = document.scrollingElement.scrollTop + 10;
+    let dir;
+
+    if (lastTop - scrollTop > 0) {
+      dir = 'up';
+    } else {
+      dir = 'down';
+    }
+
+    lastTop = scrollTop;
+    if (scrollTop <= 0) {
+      if (lastIndex >= 0 && lastIndex < hList.length) {
+        lList[lastIndex].classList.remove(activeClass);
+      }
+      return;
+    }
+
+    let current = 0, hasFind = false;
+    for (let i = 0; i < hList.length; i++) {
+      if (hList[i].offsetTop > scrollTop) {
+        current = i;
+        hasFind = true;
+        break;
+      }
+    }
+    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+      current = hList.length - 1;
+    } else {
+      current--;
+    }
+    if (dir === 'down') {
+      if (current > lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex)
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    } else {
+      if (current < lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex);
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    }
+  });
+
+
+  window.addEventListener('load', function () {
+    showToc();
+    document.querySelector('#sidebar').style = 'display: block;';
+    tocWrapper.classList.add('toc-active');
+    setTimeout(function () {
+      if ("createEvent" in document) {
+        let evt = document.createEvent("HTMLEvents");
+        evt.initEvent("scroll", false, true);
+        document.dispatchEvent(evt);
+      }
+      else {
+        document.fireEvent("scroll");
+      }
+    }, 500)
+  })
+
+</script>
+            </div>
           
         
       </div>
@@ -339,8 +541,8 @@
           <div class="section bg-color post post-page">
             <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://1198560751.github.io/qwe/post/git-de-shi-yong/">
-      git的使用
+    <a class="post-title-link" href="https://1198560751.github.io/qwe/post/java-xiang-guan-pei-zhi/">
+      java相关配置
     </a>
   </h1>
   <div class="post-meta">
@@ -348,181 +550,50 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span>2020-06-24</span>
+      <span>2020-06-25</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
-      <i class="fa fa-folder-o"></i>
-      <span class="pc-show language" data-lan="category-in">分类于</span>
-      
-      
-      <a href="https://1198560751.github.io/qwe/tag/7WkqVIc8b/">
-        <span>git</span>
-      </a>、
-      
-      
-      
-      <a href="https://1198560751.github.io/qwe/tag/AwLFibjB3/">
-        <span>Gridea</span>
-      </a>
-      
-      
-    </span>
-    <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>5<span class="language" data-lan="minute">分钟</span></span>
+      <span>1<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>990<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>123<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
-              <!-- more -->
-<p>👏  欢迎使用 <strong>Gridea</strong> ！</p>
-<ul>
-<li>1.git遇到问题，就是我还原之后log里只有到还原到的地方，后面的都没了</li>
-</ul>
-<pre><code class="language-bash">HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令git reset --hard commit_id。
+              <h4 id="安装idea配置java18环境">安装idea配置java1.8环境</h4>
+<h4 id=""></h4>
+<h4 id="一安装jdk配置jdk环境">一.安装jdk，配置jdk环境</h4>
+<p>1.下载jdk1.8，然后安装到文件夹，需要英文文件夹</p>
+<figure data-type="image" tabindex="1"><img src="C:%5CUsers%5C%E5%9C%A8%E4%BA%BA%E9%97%B4%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200625180439435.png" alt="image-20200625180439435" loading="lazy"></figure>
+<p>2.环境变量配置</p>
+<p>①在系统变量中加入JAVA_HOME 值是jdk路径</p>
+<p><img src="C:%5CUsers%5C%E5%9C%A8%E4%BA%BA%E9%97%B4%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200625182052605.png" alt="0" loading="lazy">②在系统变量的path中加入</p>
+<figure data-type="image" tabindex="2"><img src="C:%5CUsers%5C%E5%9C%A8%E4%BA%BA%E9%97%B4%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200625182156334.png" alt="image-20200625182156334" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="C:%5CUsers%5C%E5%9C%A8%E4%BA%BA%E9%97%B4%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200625182203848.png" alt="image-20200625182203848" loading="lazy"></figure>
+<p>然后保存。</p>
+<p>进行测试：打开cm，查看-version</p>
+<figure data-type="image" tabindex="4"><img src="C:%5CUsers%5C%E5%9C%A8%E4%BA%BA%E9%97%B4%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200625182614809.png" alt="image-20200625182614809" loading="lazy"></figure>
+<p>进行java代码测试</p>
+<pre><code class="language-java">Hello.java
 
-穿梭前，用git log可以查看提交历史，以便确定要回退到哪个版本。
-
-要重返未来，用git reflog查看命令历史，以便确定要回到未来的哪个版本
+public class Hello{
+	public static void main(String [] args){
+		System.out.print(&quot;Hello,Word!&quot;);
+	}
+}
 </code></pre>
-<pre><code class="language-shell">// 放弃单个文件修改,注意不要忘记中间的&quot;--&quot;,不写就成了检出分支了!
-git checkout -- filepathname
-// 放弃所有的文件修改
-git checkout .  
-</code></pre>
-<p>git操作手册 https://gitee.com/progit/</p>
-<ul>
-<li>进行撤回记录中的任意一个</li>
-</ul>
-<pre><code class="language-shell">在人间@LAPTOP-PDIKKH3V MINGW64 /e/微信小程序的创建的项目文档/123123 (master)
-$ git log --oneline
-700b141 (HEAD -&gt; master) zai yici
-25f4035 ceshi1
-76cf0a9 条件渲染
-f6b237b di er ci
-a636ddd new html
-
-在人间@LAPTOP-PDIKKH3V MINGW64 /e/微信小程序的创建的项目文档/123123 (master)
-$ git status
-On branch master
-Changes to be committed:
-  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)
-        modified:   pages/index/index.wxml
-
-Changes not staged for commit:
-  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
-  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)
-        modified:   pages/index/index.wxml
-
-
-在人间@LAPTOP-PDIKKH3V MINGW64 /e/微信小程序的创建的项目文档/123123 (master)
-$ git add .
-
-在人间@LAPTOP-PDIKKH3V MINGW64 /e/微信小程序的创建的项目文档/123123 (master)
-$ git status
-On branch master
-Changes to be committed:
-  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)
-        modified:   pages/index/index.wxml
-
-
-在人间@LAPTOP-PDIKKH3V MINGW64 /e/微信小程序的创建的项目文档/123123 (master)
-$ git commit -m 'jin ru li mian'
-[master 192e68d] jin ru li mian
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-在人间@LAPTOP-PDIKKH3V MINGW64 /e/微信小程序的创建的项目文档/123123 (master)
-$ git status
-On branch master
-nothing to commit, working tree clean
-
-在人间@LAPTOP-PDIKKH3V MINGW64 /e/微信小程序的创建的项目文档/123123 (master)
-$ git log --oneline
-192e68d (HEAD -&gt; master) jin ru li mian
-700b141 zai yici
-25f4035 ceshi1
-76cf0a9 条件渲染
-f6b237b di er ci
-a636ddd new html
-
-#进行输入一些测试进行保存，然后直接恢复到最近一次commit的地方
-在人间@LAPTOP-PDIKKH3V MINGW64 /e/微信小程序的创建的项目文档/123123 (master)
-$ git status
-On branch master
-Changes not staged for commit:
-  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
-  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)
-        #### modified:   pages/index/index.wxml
-
-no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
-
-在人间@LAPTOP-PDIKKH3V MINGW64 /e/微信小程序的创建的项目文档/123123 (master)
-$ git checkout -- .
-
-在人间@LAPTOP-PDIKKH3V MINGW64 /e/微信小程序的创建的项目文档/123123 (master)
-$ git status
-On branch master
-nothing to commit, working tree clean
-
-在人间@LAPTOP-PDIKKH3V MINGW64 /e/微信小程序的创建的项目文档/123123 (master)
-$ git log --oneline
-192e68d (HEAD -&gt; master) jin ru li mian
-700b141 zai yici
-25f4035 ceshi1
-76cf0a9 条件渲染
-f6b237b di er ci
-a636ddd new html
--------------------------------------------
-#进行返回前一条的操作，中间跨了一条记录
-在人间@LAPTOP-PDIKKH3V MINGW64 /e/微信小程序的创建的项目文档/123123 (master)
-$ git reset 25f4035 .
-Unstaged changes after reset:
-M       pages/index/index.wxml
-
-在人间@LAPTOP-PDIKKH3V MINGW64 /e/微信小程序的创建的项目文档/123123 (master)
-$ git status
-On branch master
-Changes to be committed:
-  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)
-  #      modified:   pages/index/index.wxml
-
-Changes not staged for commit:
-  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
-  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)
-   #     modified:   pages/index/index.wxml
-
-
-在人间@LAPTOP-PDIKKH3V MINGW64 /e/微信小程序的创建的项目文档/123123 (master)
-$ git checkout -- .
-
-在人间@LAPTOP-PDIKKH3V MINGW64 /e/微信小程序的创建的项目文档/123123 (master)
-$ git status
-On branch master
-Changes to be committed:
-  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)
-        modified:   pages/index/index.wxml
-
-
-在人间@LAPTOP-PDIKKH3V MINGW64 /e/微信小程序的创建的项目文档/123123 (master)
-$ git log --oneline
-192e68d (HEAD -&gt; master) jin ru li mian
-700b141 zai yici
-25f4035 ceshi1
-76cf0a9 条件渲染
-f6b237b di er ci
-a636ddd new html
-
-</code></pre>
+<figure data-type="image" tabindex="5"><img src="C:%5CUsers%5C%E5%9C%A8%E4%BA%BA%E9%97%B4%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200625182927006.png" alt="image-20200625182927006" loading="lazy"></figure>
+<h4 id="二安装idea">二.安装idea</h4>
+<figure data-type="image" tabindex="6"><img src="C:%5CUsers%5C%E5%9C%A8%E4%BA%BA%E9%97%B4%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200625185941294.png" alt="image-20200625185941294" loading="lazy"></figure>
+<h4 id="三创建的目录">三.创建的目录</h4>
+<p>idea ideaxiangmu javawenjian  .idea  .IntelliJIdea2019.3</p>
 
             </div>
             
@@ -535,7 +606,7 @@ a636ddd new html
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://1198560751.github.io/qwe/post/git-de-shi-yong/" title="git的使用">https://1198560751.github.io/qwe/post/git-de-shi-yong/</a>
+      <a href="https://1198560751.github.io/qwe/post/java-xiang-guan-pei-zhi/" title="java相关配置">https://1198560751.github.io/qwe/post/java-xiang-guan-pei-zhi/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -544,23 +615,15 @@ a636ddd new html
   </ul>
   <div class="tags">
     
-      <a href="https://1198560751.github.io/qwe/tag/7WkqVIc8b/"># git</a>
-    
-      <a href="https://1198560751.github.io/qwe/tag/AwLFibjB3/"># Gridea</a>
-    
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="java相关配置" href="https://1198560751.github.io/qwe/post/java-xiang-guan-pei-zhi/">java相关配置</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="java相关配置" href="https://1198560751.github.io/qwe/post/java-xiang-guan-pei-zhi/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="Hello word" href="https://1198560751.github.io/qwe/post/hello-gridea/">Hello word</a>
-        <a class="nav-mobile-next" title="Hello word" href="https://1198560751.github.io/qwe/post/hello-gridea/">下一篇</a>
+        <a class="nav-pc-next" title="git的使用" href="https://1198560751.github.io/qwe/post/git-de-shi-yong/">git的使用</a>
+        <a class="nav-mobile-next" title="git的使用" href="https://1198560751.github.io/qwe/post/git-de-shi-yong/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
