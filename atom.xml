@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://1198560751.github.io/qweqwe/</id>
     <title>nie</title>
-    <updated>2020-06-28T07:23:48.314Z</updated>
+    <updated>2020-06-28T07:31:40.690Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://1198560751.github.io/qweqwe/"/>
     <link rel="self" href="https://1198560751.github.io/qweqwe/atom.xml"/>
@@ -10,6 +10,78 @@
     <logo>https://1198560751.github.io/qweqwe/images/avatar.png</logo>
     <icon>https://1198560751.github.io/qweqwe/favicon.ico</icon>
     <rights>All rights reserved 2020, nie</rights>
+    <entry>
+        <title type="html"><![CDATA[git的操作命令]]></title>
+        <id>https://1198560751.github.io/qweqwe/post/git-de-cao-zuo-ming-ling/</id>
+        <link href="https://1198560751.github.io/qweqwe/post/git-de-cao-zuo-ming-ling/">
+        </link>
+        <updated>2020-06-28T07:26:56.000Z</updated>
+        <content type="html"><![CDATA[<h4 id="git的操作命令">git的操作命令</h4>
+<figure data-type="image" tabindex="1"><img src="https://pic3.zhimg.com/v2-6c555038a6fcab439cf97b0bc150a498_r.jpg" alt="preview" loading="lazy"></figure>
+<h5 id="问题1">问题1：</h5>
+<figure data-type="image" tabindex="2"><img src="https://1198560751.github.io/qweqwe//post-images/1593329366418.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="https://1198560751.github.io/qweqwe//post-images/1593329372703.png" alt="" loading="lazy"></figure>
+<p>https://www.cnblogs.com/sjhsszl/p/8708471.html</p>
+<h5 id="问题2">问题2：</h5>
+<figure data-type="image" tabindex="4"><img src="https://1198560751.github.io/qweqwe//post-images/1593329378625.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="5"><img src="https://1198560751.github.io/qweqwe//post-images/1593329382780.png" alt="" loading="lazy"></figure>
+<h5 id="问题3">问题3：</h5>
+<ul>
+<li>如果想要上传的时候增加文件操作</li>
+</ul>
+<pre><code class="language-shell">git add .
+git commit -m &quot;add ?&quot;
+git push
+</code></pre>
+<ul>
+<li>如果想要上传不是同一个文件夹里的东西，需要git pull在本地同步然后上传</li>
+</ul>
+<pre><code class="language-shell">git add .
+git commit -m &quot;add ?&quot;
+
+#如果这个文件夹是新的，没有上传过的
+git remote add origin https://?
+
+git pull --rebase origin master  #这个--后面可加可不加
+git push -u origin master  #这个-u后面的第一次需要加，后面的如果还是这个分支，可加可不加
+</code></pre>
+<h5 id="正常的git上传文件">正常的git上传文件：</h5>
+<p>…or create a new repository on the command line</p>
+<pre><code class="language-shell">echo &quot;# admin&quot; &gt;&gt; README.md
+git init
+git add README.md
+git commit -m &quot;first commit&quot;
+git remote add origin https://github.com/1198560751/admin.git
+git push -u origin master
+#然后第二次补充文件  
+git add .
+git commit -m &quot;?&quot;
+git push
+</code></pre>
+<h5 id="git常用的命令">git常用的命令</h5>
+<pre><code class="language-shell">常用的命令
+
+git status --查看当前代码状态，改动，所在分支，是否有代码冲突等
+
+git branch -a --查看当前主干下有哪些分支
+
+git checkout --切换分支
+
+git diff --查看分支代码改动 
+</code></pre>
+<h5 id="git-删除方法">git 删除方法：</h5>
+<pre><code class="language-shell">$ git pull origin master                    # 将远程仓库里面的项目拉下来
+
+$ dir                                                # 查看有哪些文件夹
+
+$ git rm -r --cached .idea              # 删除.idea文件夹
+
+$ git commit -m '删除.idea'        # 提交,添加操作说明
+
+$ git push -u origin master               # 将本次更改更新到github项目上去
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[java相关配置]]></title>
         <id>https://1198560751.github.io/qweqwe/post/java-xiang-guan-pei-zhi/</id>
